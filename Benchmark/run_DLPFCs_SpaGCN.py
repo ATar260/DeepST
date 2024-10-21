@@ -98,7 +98,7 @@ for sample_name in sample_list:
     torch.manual_seed(t_seed)
     np.random.seed(n_seed)
     #Run
-    clf.train(adata,adj,init_spa=True,init="louvain",res=res, tol=5e-3, lr=0.05, max_epochs=200)
+    clf.train(adata,adj,init_spa=True,init="leiden",res=res, tol=5e-3, lr=0.05, max_epochs=200)
     y_pred, prob=clf.predict()
     adata.obs["pred"]= y_pred
     adata.obs["pred"]=adata.obs["pred"].astype('category')
